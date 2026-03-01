@@ -75,13 +75,10 @@ def get_all_playlists():
         playlists = sp.current_user_playlists(limit=10, offset=pl_offset)
 
 
-# playlist_keys: ['collaborative', 'description', 'external_urls', 'followers', 'href', 'id', 'images', 'name', 'owner', 'primary_color', 'public', 'snapshot_id', 'tracks', 'items', 'type', 'uri']
-# item_keys = ['added_at', 'added_by', 'is_local', 'primary_color', 'track', 'item', 'video_thumbnail']
-# track_keys = ['preview_url', 'available_markets', 'explicit', 'type', 'episode', 'track', 'album', 'artists', 'disc_number', 'track_number', 'duration_ms', 'external_ids', 'external_urls', 'href', 'id', 'name', 'popularity', 'uri', 'is_local']
-# artist_keys = ['external_urls', 'href', 'id', 'name', 'type', 'uri']
-# album_keys = ['available_markets', 'type', 'album_type', 'href', 'id', 'images', 'name', 'release_date', 'release_date_precision', 'uri', 'artists', 'external_urls', 'total_tracks']
-
 if __name__ == "__main__":
+    if not os.path.exists("./dump"):
+        os.makedirs("./dump")
+
     if len(sys.argv) < 2:
         get_liked_tracks()
         get_all_playlists()

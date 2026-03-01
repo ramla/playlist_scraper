@@ -29,6 +29,9 @@ for filename in filenames:
         playlist_name = dump["name"]
         itemcontainer = dump["items"]
 
+    print("==========================================================")
+    print("playlist name:", playlist_name)
+    print("==========================================================")
     for item in itemcontainer:
         # item_keys = ['added_at', 'added_by', 'is_local', 'primary_color', 'track', 'item', 'video_thumbnail']
         # track_keys = ['preview_url', 'available_markets', 'explicit', 'type', 'episode', 'track', 'album', 'artists',
@@ -60,7 +63,6 @@ for filename in filenames:
 
     if not os.path.exists("./csv"):
         os.makedirs("./csv")
-
 
     with open(f"csv/{playlist_name}.csv", "w", newline="", encoding="utf-8") as csvfile:
         f = csv.writer(csvfile, quotechar='|', quoting=csv.QUOTE_MINIMAL)
